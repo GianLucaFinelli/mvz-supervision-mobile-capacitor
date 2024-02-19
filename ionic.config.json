@@ -1,0 +1,7 @@
+{
+  "name": "mvz-supervision-v2-mobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
