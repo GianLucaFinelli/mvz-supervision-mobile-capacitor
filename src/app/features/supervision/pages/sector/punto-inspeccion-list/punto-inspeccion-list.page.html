@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-mvz-menu-button></app-mvz-menu-button>
+    <ion-title *ngIf="this.customMode === ''">{{title}}</ion-title>
+    <ion-title *ngIf="this.customMode !== '' && this.customMode !== 'prod'">
+      {{title}} <b>[{{this.customMode}}]</b>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid padding-sides>
+    <ion-row>
+      <ion-col>
+        <h3 class="text-center">{{loggedUser.nombre}} {{loggedUser.apellido}}</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <div *ngIf="sector" class="sector-title">{{sector.sitioNombre}} - {{sector.subSitioNombre}} - {{sector.descripcion}}
+      </div>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list no-margin *ngIf="inspectionPoints.length !== 0">
+          <ion-item item-bcg *ngFor="let point of inspectionPoints; let i = index;" (click)="inspect(point)">
+            <ion-icon class="item-left" *ngIf="point.status==='OK'" color="success" name="checkmark-circle-outline"></ion-icon>
+            <ion-icon class="item-left" *ngIf="point.status==='FAIL'" color="danger" name="close-circle-outline"></ion-icon>
+            <ion-icon class="item-left" *ngIf="point.status==='missing'" color="medium" name="remove-circle-outline"></ion-icon>
+            <div item-title>{{point.descripcion}}</div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-row>
+    <ion-col>
+      <ion-button style="width: 100%;" (click)="goBack()" color="danger">CANCELAR</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button style="width: 100%;" (click)="confirm()" [disabled]="!isenabled">
+        CONFIRMAR
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-mvz-menu-button></app-mvz-menu-button>
+    <ion-title>Configuración</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="main-content">
+  <ion-row class="ion-margin-vertical headerRow">
+    <ion-col>
+      <ion-title margin-start class="titleHeader"> PANTALLA </ion-title>
+    </ion-col>
+  </ion-row>
+
+  <ion-item lines="none">
+    <ion-label class="settingText"> Tema oscuro </ion-label>
+    <ion-toggle [(ngModel)]="isDarkmodeEnabled" #themeToggle slot="end" class="titleHeader toggleBtn" id="themeToggle" label="Tema oscuro">
+    </ion-toggle>
+  </ion-item>
+  <ion-row class="ion-margin-horizontal">
+    <ion-col>
+      <small class="smallText">Reduce los reflejos y mejora la visualización nocturna.</small>
+    </ion-col>
+  </ion-row>
+</ion-content>

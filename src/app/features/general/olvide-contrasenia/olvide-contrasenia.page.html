@@ -1,0 +1,79 @@
+<ion-content #content
+             fullscreen
+             class="bg-forgot">
+    <ion-grid>
+        <ion-row>
+            <ion-col size="12"
+                     offset-xl="4"
+                     size-xl="4">
+                <ion-row class="content-logo ion-margin-vertical"
+                         justify-content-center>
+                    <ion-col align-self-center>
+                        <!---Logo-->
+                        <img id="logo-principal-forgot"
+                             [src]="image"
+                             alt="Logo" />
+                    </ion-col>
+                </ion-row>
+                <ion-row margin>
+                    <ion-col>
+                        <ion-text>
+                            <h3 class="ion-text-center">¿Olvidaste tu clave?</h3>
+                            <h6 class="ion-text-center">Ingresá tu usuario (DNI) para recuperarla</h6>
+                        </ion-text>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <!---Input field email-->
+                        <form [formGroup]="forgetForm"
+                              (ngSubmit)="onSubmit()"
+                              autocomplete="off">
+                            <ion-row>
+                                <ion-col>
+                                    <ion-item class="ion-margin-horizontal itemB dni-reset-pass"
+                                              [ngClass]="{'error': !validateDni()}">
+                                        <ion-input 
+                                                   class="login-label"
+                                                   label="Usuario (DNI)" 
+                                                   type="number"
+                                                   label-placement="floating"
+                                                   id="dni"
+                                                   (input)="onInputChanged($event)" [(ngModel)]="inputNumber"
+                                                   formControlName="dni"
+                                                   ></ion-input>
+                                    </ion-item>
+                                    <em *ngIf="!validateDni() && !forgetForm.valid">Debe completar este campo con
+                                        caracteres numéricos</em>
+                                </ion-col>
+                            </ion-row>
+                            <ion-row margin>
+                                <ion-col>
+                                    <ion-col>
+                                        <ion-button type="submit"
+                                                    [disabled]="!forgetForm.valid"
+                                                    fill="solid"
+                                                    color="primary"
+                                                    expand="full"
+                                                    shape="round"
+                                                    id="buttonLogin">Recuperar</ion-button>
+                                    </ion-col>
+                                </ion-col>
+                            </ion-row>
+                        </form>
+                        <ion-row>
+                            <ion-col>
+                                <div class="cursor-pointer"
+                                     (click)="goToLogin()">
+                                    <ion-text class="ion-text-center">
+                                        <h6>Ir a Iniciar Sesión</h6>
+                                    </ion-text>
+                                </div>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

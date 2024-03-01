@@ -1,0 +1,28 @@
+<ion-menu contentId="main-content" type="overlay" (ionWillOpen)="ionWillOpen()">
+  <ion-content #content>
+    <ion-list id="inbox-list">
+      <div class="display-flex">
+        <img id="logo-login" [src]="image" alt="Logo" class="ion-margin-horizontal"/>
+      </div>
+      <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+        <ng-container *ngIf="!p.action">
+          <ion-item routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" routerLinkActive="selected">
+            <ion-icon *ngIf="p.icon" aria-hidden="true" slot="start" [ios]="p.icon" [md]="p.icon"></ion-icon>
+            <span  *ngIf="!p.icon" class="material-icons truck-icon">local_shipping</span>
+            <ion-label>{{ p.title }}</ion-label>
+            <ion-badge *ngIf="p.badge && notificacionesSinLeer" slot="end" class="danger">{{notificacionesSinLeer}}</ion-badge>
+          </ion-item>
+        </ng-container>
+        <ng-container *ngIf="p.action">
+          <ion-item (click)="navigateTo(p.url)" lines="none" detail="false" routerLinkActive="selected">
+            <ion-icon aria-hidden="true" slot="start" [ios]="p.icon" [md]="p.icon"></ion-icon>
+            <ion-label>{{ p.title }}</ion-label>
+            <ion-badge *ngIf="p.badge !== 0" slot="end" class="danger">{{p.badge}}</ion-badge>
+          </ion-item>
+        </ng-container>
+
+      </ion-menu-toggle>
+    </ion-list>
+
+  </ion-content>
+</ion-menu>

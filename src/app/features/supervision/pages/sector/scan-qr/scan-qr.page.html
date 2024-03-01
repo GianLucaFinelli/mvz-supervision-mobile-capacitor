@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-mvz-menu-button></app-mvz-menu-button>
+    <ion-title>Escanear código QR</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid padding-sides>
+    <ion-row>
+      <ion-col col-12
+               text-center
+               user-data>
+        <h3 class="text-center">{{loggedUser.nombre}} {{loggedUser.apellido}}</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="sector">
+      <div class="sector">
+        {{sector.sitioNombre}} - {{sector.subSitioNombre}} - {{sector.descripcion}}
+      </div>
+    </ion-row>
+    <div class="img-container" *ngIf="scannerImg">
+      <img src="{{scannerImg}}" />
+    </div>
+    <ion-row style="width: 100%;" *ngIf="scannerMsg">
+      <ion-item style="width: 100%;" >
+        <p>{{scannerMsg}}</p>
+      </ion-item>
+    </ion-row>
+    <ion-row padding-top
+             *ngIf="!manual">
+      <ion-col size="6">
+        <ion-button style="width: 100%;" (click)="scan()" *ngIf="!scannedOk">
+          Escanear <br /> código
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button style="width: 100%;" (click)="scanManual()" *ngIf="!scannedOk">
+          Cargar <br /> manualmente
+        </ion-button>
+        <ion-button style="width: 100%;" (click)="inspeccionarV2()" *ngIf="scannedOk">
+          INSPECCIONAR
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row padding-top
+             *ngIf="manual">
+      <ion-col size="12">
+        <ion-item class="annotations">
+          <ion-label floating>Código</ion-label>
+          <ion-input [(ngModel)]="qrCode"></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button style="width: 100%;" color="danger" (click)="cancelManual()">
+          Cancelar
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button style="width: 100%;" (click)="acceptManual()">
+          Aceptar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

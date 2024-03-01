@@ -1,0 +1,16 @@
+.spinner-container{
+    margin-top: 10px;
+    width: 100%;
+    
+    ion-spinner,    
+    ion-label{
+        width: 100%;
+        text-align: center;        
+    }
+
+    ion-label{
+        display: block;
+        font-size: 12px;
+        line-height: 14px;
+    }
+}

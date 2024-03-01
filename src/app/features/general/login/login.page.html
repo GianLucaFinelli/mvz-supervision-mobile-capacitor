@@ -1,0 +1,98 @@
+<ion-content class="content-login" fullscreen #content>
+  <ion-grid>
+    <ion-row wrap padding>
+      <ion-col size="12" offset-xl="4" size-xl="4">
+        <img
+          id="logo-login"
+          [src]="image"
+          alt="Logo"
+          class="ion-margin-horizontal" />
+        <form
+          [formGroup]="loginForm"
+          (ngSubmit)="onSubmit(loginForm)"
+          autocomplete="off">
+          <!-- campo usuario -->
+          <ion-col>
+            <ion-item class="ion-margin-horizontal itemB">
+              <!-- TODO:  -->
+              <!-- Agregar label="Usuario (DNI)" a ion-input (ver cómo customizar estilo) -->
+              <!-- Ver por qué al vaciar el input se ve el label rojo -->
+              <!-- <ion-label position="floating" class="login-label">Usuario (DNI)</ion-label> -->
+              <ion-input
+                label="Usuario"
+                formControlName="userName" 
+                label-placement="floating"
+                [(ngModel)]="inputUser"
+                class="loginInput"
+                #inputUsername>
+              </ion-input>
+            </ion-item>
+            <em
+              *ngIf="loginForm?.get('userName')?.invalid && 
+                                (loginForm?.get('userName')?.touched || loginForm?.get('userName')?.dirty)">
+              El campo Usuario es requerido
+            </em>
+          </ion-col>
+          <!-- campo contraseña -->
+          <ion-col>
+            <mvz-password-editor
+              formControlName="password"
+              label="Contraseña"
+              class="itemB"
+              #inputPass>
+            </mvz-password-editor>
+            <em
+              *ngIf="loginForm?.get('password')?.invalid && 
+                            (loginForm?.get('password')?.touched || loginForm?.get('password')?.dirty)">
+              La clave es requerida
+            </em>
+          </ion-col>
+          <!-- recordarme -->
+          <ion-col>
+            <ion-item lines="none">
+              <ion-checkbox
+                formControlName="rememberMe"
+                class="checkbox-primary">
+                Recordarme
+              </ion-checkbox>
+            </ion-item>
+          </ion-col>
+          <!-- botón iniciar sesión -->
+          <ion-col>
+            <ion-button
+              type="submit"
+              expand="full"
+              shape="round"
+              id="buttonLogin"
+              color="primary">Iniciar sesión
+            </ion-button>
+          </ion-col>
+        </form>
+        <!-- registrate -->
+        <ion-col>
+          <div (click)="goToRegister()" class="btnLogin">
+            <ion-text class="ion-text-center">
+              <h6>
+                ¿No tenés cuenta? <span class="text-dinamic">REGISTRATE</span>
+              </h6>
+            </ion-text>
+          </div>
+        </ion-col>
+        <!-- olvidé mi clave -->
+        <ion-col>
+          <div (click)="goToForgot()">
+            <ion-text class="ion-text-center">
+              <h6 class="text-dinamic">Olvidé mi clave</h6>
+            </ion-text>
+          </div>
+        </ion-col>
+        <!-- versión -->
+        <ion-col class="ion-text-center" no-margin no-padding>
+          <!-- <p class="version">Versión {{versionNumber}}</p> -->
+          <p *ngIf="enviroment !== 'produccion'" class="version">Entorno de
+            {{enviroment}}</p>
+        </ion-col>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

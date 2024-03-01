@@ -1,0 +1,81 @@
+<ion-content class="scroll-custom">
+  <ion-row class="header-row">
+    <ion-col>
+      <ion-title margin-start class="title-header"
+        >Actualización disponible</ion-title
+      >
+    </ion-col>
+  </ion-row>
+  <ion-item-group class="">
+    <ion-row>
+      <ng-container *ngIf="esRequerido; else noRequeridoText">
+        <ion-col>
+          <h4 class="subtitle">
+            Debe actualizar su aplicación a la versión {{ nuevaVersion }} para
+            poder continuar.
+          </h4>
+        </ion-col>
+      </ng-container>
+
+      <ng-template #noRequeridoText>
+        <ion-col>
+          <h4 class="subtitle">
+            Esta disponible la actualización de la versión
+            {{ nuevaVersion }} para tu aplicación.
+          </h4>
+        </ion-col>
+      </ng-template>
+    </ion-row>
+
+    <ng-container *ngIf="esRequerido; else noRequerido">
+      <ion-row margin padding-vertical class="m-dinamic justify-content-center">
+        <ion-col size="6">
+          <ion-button
+            class="ion-text-right"
+            type="submit"
+            fill="solid"
+            color="primary"
+            expand="full"
+            size="default"
+            style="font-weight: bold"
+            [href]="urlAppMarket"
+            shape="round"
+            >Actualizar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+
+    <ng-template #noRequerido>
+      <ion-row margin padding-vertical class="m-dinamic">
+        <ion-col size="6">
+          <ion-button
+            type="button"
+            fill="solid"
+            (click)="close()"
+            expand="full"
+            shape="round"
+            class="btn-detail"
+            size="default"
+            >Mas tarde
+          </ion-button>
+        </ion-col>
+
+        <ion-col size="6">
+          <ion-button
+            class="ion-text-right"
+            type="submit"
+            fill="solid"
+            color="primary"
+            expand="full"
+            size="default"
+            style="font-weight: bold"
+            [href]="urlAppMarket"
+            shape="round"
+            >Actualizar
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ng-template>
+  </ion-item-group>
+</ion-content>

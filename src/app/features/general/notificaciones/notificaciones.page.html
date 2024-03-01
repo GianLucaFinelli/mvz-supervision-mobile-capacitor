@@ -1,0 +1,50 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-mvz-menu-button></app-mvz-menu-button>
+    <ion-title>Notificaciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="cargarNotificaciones($event)">
+    <ion-refresher-content> </ion-refresher-content>
+  </ion-refresher>
+  <mvz-spinner
+    [isLoading]="isLoading"
+    [hasResults]="notifications && notifications.length > 0"
+  ></mvz-spinner>
+  <ion-list *ngIf="notifications && notifications.length >0">
+    <ion-item
+      *ngFor="let notification of notifications"
+      (click)="openNotificationModal(notification)"
+    >
+      <div class="content-container">
+        <ion-label>
+          <div class="date-icon-container">
+            <span class="color"
+              >{{notification.fechaEnvio | date: 'dd/MM/yyyy'}}</span
+            >
+          </div>
+        </ion-label>
+
+        <ion-label>
+          <h2
+            [ngClass]="{'titulo-leido': notification.leido === true, 'titulo-no-leido' : notification.leido === false }"
+          >
+            {{ notification.titulo }}
+          </h2>
+        </ion-label>
+
+        <div class="message-icon-container">
+          <ion-label class="message-size">
+            <p
+              [ngClass]="{'mensaje-leido': notification.leido === true, 'mensaje-no-leido' : notification.leido === false }"
+            >
+              {{ notification.mensaje }}
+            </p>
+          </ion-label>
+        </div>
+      </div>
+    </ion-item>
+  </ion-list>
+</ion-content>

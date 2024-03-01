@@ -1,0 +1,14 @@
+ion-buttons{
+  display: inline-flex;
+  ion-badge{
+    position: absolute;
+    top: 7px;
+    right: 0px;
+    border-radius: 15px;
+    font-size: 10px;
+    color: var(--ion-color-medium-contrast);
+    background: var(--ion-color-danger);
+    border-radius: 25px;
+    padding: 3px 6px;
+  }
+}

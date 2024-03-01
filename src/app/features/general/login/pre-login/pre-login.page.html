@@ -1,0 +1,45 @@
+<ion-content [fullscreen]="true" #content>
+  <ion-title class="title"> Datos de contexto </ion-title>
+
+  <form [formGroup]="contextForm">
+    <!-- select de entorno -->
+
+    <ion-row class="entorno-container">
+      <ion-col>
+        <ion-item button="false" class="border-selector">
+          <ion-select label="ENTORNO" label-placement="floating" formControlName="fEnviroment" cancelText="Cancelar">
+            <ion-select-option value="desarrollo">Desarrollo</ion-select-option>
+            <ion-select-option value="testing">Testing</ion-select-option>
+            <ion-select-option value="uat">UAT</ion-select-option>
+            <ion-select-option value="produccion">Producción</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- checkbox para enviar SMS -->
+
+    <ion-row>
+      <ion-col>
+        <ion-item>
+          <ion-checkbox formControlName="fSms" class="check-box">
+          </ion-checkbox>
+          <ion-label> Enviar SMS para verificar </ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <!-- Botones cancelar y cambiar-->
+
+    <ion-row wrap class="buttons-container">
+      <ion-col>
+        <ion-button type="submit" fill="solid" color="primary" expand="full" shape="round" size="default"
+          (click)="closeModal()">Cancelar</ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button type="submit" fill="solid" color="primary" expand="full" size="default" shape="round"
+          (click)="change()">Cambiar</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>

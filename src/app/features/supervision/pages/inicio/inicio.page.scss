@@ -1,0 +1,90 @@
+
+[no-padding-custom] {
+  padding-bottom: 0;
+  padding-top: 0;
+}
+
+[user-data] h3 {
+  font-weight: 500;
+}
+
+.label-md {
+  margin: 0px;
+}
+
+.item-md ion-icon[item-left] {
+  margin: 0px;
+}
+
+[item-title] {
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+[item-sub-title] {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+}
+
+.item>ion-icon {
+  font-size: 1.6rem;
+}
+
+.item-md.item-block .item-inner {
+  border: none;
+}
+
+ion-item ion-icon {
+  min-height: auto !important;
+  font-size: 1.2em !important;
+}
+
+ion-segment-button {
+  border: 0 !important;
+  margin: 0 !important;
+}
+
+.col-ai-center {
+  width: 100% !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-item {
+  font-size: 1.5em !important;
+  margin: 10px 0px;
+}
+
+.inicio-title {
+  padding: 5px 10px;
+}
+
+@media only screen and (max-width: 330px) {
+div.options {
+  max-height: 130px !important;
+  width: auto;
+}
+
+.option-icon {
+  font-size: 3em !important;
+  color: theme-colors("mainColors", "secondary");
+}
+
+h6[small] {
+  font-size: 1.4rem;
+}
+
+h4[small] {
+  margin-top: 0;
+}
+
+h6[padding-top] {
+  padding-top: 0px !important;
+}
+}
+
+.trash-item {
+color: darkgrey;
+font-size: 24px !important;
+}

@@ -1,0 +1,106 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-mvz-menu-button></app-mvz-menu-button>
+    <ion-title *ngIf="this.customMode === ''">{{title}}</ion-title>
+    <ion-title *ngIf="this.customMode !== '' && this.customMode !== 'prod'">
+      {{title}} <b>[{{this.customMode}}]</b>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-label no-margin *ngIf="sector" class="sector" style="width: 100%;">
+      {{sector.sitioNombre}} - {{sector.subSitioNombre}} - {{sector.descripcion}}
+    </ion-label>
+  </ion-item>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div class="inspeccion-point" *ngIf="inspectionPoint">
+          <ion-icon *ngIf="inspectionPoint.status === 'OK'" color="success" name="checkmark-circle-outline"></ion-icon>
+          <ion-icon *ngIf="inspectionPoint.status === 'FAIL'" color="danger" name="close-circle-outline"></ion-icon>
+          <ion-icon *ngIf="inspectionPoint.status === 'missing'" color="medium" name="remove-circle-outline"></ion-icon>
+          <h2 style="margin-bottom: 15px;">
+            {{inspectionPoint.descripcion}}
+          </h2>
+        </div>
+        <ion-list style="width: 100%;">
+          <div class="item-accordion" *ngIf="inspectionPoint" style="width: 100%;">
+            <!-- <form [formGroup]="pointForm"> -->
+              <ion-item class="border-input annotations">
+                <ion-label floating>Comentario</ion-label>
+                <ion-input [(ngModel)]="comentario" (ionInput)="checkComentario($event)"></ion-input>
+              </ion-item>
+              <div class="alert-text-danger" *ngIf="comentario.length > 45">
+                <label>
+                  La longitud máxima permitida para el comentario es de 45
+                  carácteres.
+                </label>
+              </div>
+            <!-- </form> -->
+            <ion-item *ngIf="!imageName">
+              <div style="display: flex; flex-direction: column; width: 100%; margin: 15px 0px;">
+                <div class="camera-option option" style="width: 100%;" (click)="openCamera(false)">
+                  <ion-icon name="camera" style="font-size: 1em; margin-right: 10px;"></ion-icon>
+                  <div style="font-size: 1em;">Tomar foto</div>
+                </div>
+                <div class="camera-option option" style="width: 100%;" (click)="openCamera(true)">
+                  <ion-icon name="images" style="font-size: 1em; margin-right: 10px;"></ion-icon>
+                  <div style="font-size: 1em;">Cargar imagen</div>
+                </div>
+              </div>
+
+            </ion-item>
+          </div>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="imageName" style="width: 100%;">
+      <ion-col size="10">
+        <ion-item cameraitem>
+          <div> {{ imageName }}</div>
+        </ion-item>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button color="danger" (click)="clearImage()">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-4
+               text-center>
+        <ion-button color="medium" (click)="changeStatus('missing')">
+          Anular
+        </ion-button>
+      </ion-col>
+      <ion-col col-4 text-center>
+        <ion-button color="danger" (click)="changeStatus('FAIL')">
+          No
+        </ion-button>
+      </ion-col>
+      <ion-col col-4
+               text-center>
+        <ion-button color="success" (click)="changeStatus('OK')">
+          Ok
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button color="danger" (click)="goBack()">
+          CANCELAR
+        </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button color="success" (click)="confirm()" [disabled]="!isenabled">
+          CONFIRMAR
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

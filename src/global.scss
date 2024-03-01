@@ -24,3 +24,257 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+
+// SCANNER: capacitor
+// body.scanner-active {
+//   --background: transparent !important;
+//   --ion-background-color: transparent !important;
+// }
+
+// Hide all elements
+body.barcode-scanner-active {
+  visibility: hidden;
+  --background: transparent;
+  --ion-background-color: transparent;
+}
+
+// Show only the barcode scanner modal
+.barcode-scanner-modal {
+  visibility: visible;
+}
+
+@media (prefers-color-scheme: dark) {
+  .barcode-scanner-modal {
+    --background: transparent;
+    --ion-background-color: transparent;
+  }
+}
+
+// Swiper Js stytles
+// @import 'swiper/scss';
+// @import 'swiper/scss/navigation';
+// @import 'swiper/scss/pagination';
+
+// .bg-light {
+//   --background: url("/assets/images/light/background.png") no-repeat center center fixed;
+// }
+// .bg-dark {
+//   --background: url("/assets/images/dark/background.png") no-repeat center center fixed;
+// }
+
+ion-header {
+  ion-title {
+    display: inline-block;
+  }
+}
+
+//Generales aplicables en ambos modos
+.alert-wrapper.sc-ion-alert-md {
+  border-radius: 20px !important;
+  h2 {
+    border-bottom: 2px solid var(--ion-color-primary);
+    width: 220px;
+    margin-left: 0px;
+    font-weight: bold;
+    font-size: 13px;
+    padding-left: 6px;
+    color: var(--ion-color-primary);
+    text-transform: uppercase;
+    padding-right: 20px;
+    padding-bottom: 10px;
+  }
+}
+
+// DARK MODE
+body.dark {
+  ion-select::part(icon),
+  ion-select::part(label) {
+    color: var(--ion-color-primary);
+    opacity: 1;
+  }
+  .titulo-no-leido {
+    color: var(--ion-color-primary);
+    font-weight: 700;
+  }
+  .titulo-leido {
+    color: #dfd7d7;
+    font-weight: 300;
+  }
+  .mensaje-no-leido {
+    color: #ffffff;
+    font-weight: 700;
+  }
+  .mensaje-leido {
+    color: #dfd7d7;
+  }
+  .checkbox-primary {
+    --checkmark-color: var(--ion-color-tertiary) !important;
+  }
+  .viaje-distancia-texto,
+  .viaje.truck-icon,
+  .location-icon {
+    color: var(--ion-color-primary) !important;
+  }
+  .linea-punteada {
+    border-bottom: 1px dashed var(--ion-color-primary) !important;
+  }
+  .linea-continua {
+    border-bottom: 1px solid var(--ion-color-primary) !important;
+  }
+  .localidad-origen-descripcion,
+  .localidad-origen-provincia,
+  .localidad-destino-descripcion,
+  .localidad-destino-provincia {
+    color: var(--ion-text-color) !important;
+  }
+  .bg-vd {
+    --background: var(--ion-color-dark);
+  }
+  ion-label.login-label {
+    --color: var(--ion-color-light) !important;
+    font-weight: bold;
+  }
+  // mvz-password-editor.itemB {
+  //   ion-item {
+  //     ion-label {
+  //       --color: var(--ion-color-light) !important;
+  //       font-weight: bold;
+  //     }
+  //   }
+  // }
+  .text-dinamic {
+    font-weight: bold !important;
+    color: var(--ion-text-color) !important;
+  }
+  ion-button.btn-detail {
+    border: 2px solid var(--ion-color-light) !important;
+  }
+}
+// LIGHT MODE
+body {
+  .has-focus.ion-valid.sc-ion-input-md-h input.sc-ion-input-md {
+    caret-color: var(--ion-color-primary);
+  }
+  .ion-invalid.ion-touched.label-stacked.sc-ion-label-md-h:not(.ion-color),
+  .ion-invalid.ion-touched .label-stacked.sc-ion-label-md-h:not(.ion-color),
+  .ion-invalid.ion-touched.label-floating.sc-ion-label-md-h:not(.ion-color),
+  .ion-invalid.ion-touched .label-floating.sc-ion-label-md-h:not(.ion-color) {
+    color: var(--ion-color-light) !important;
+  }
+  ion-button.btn-postular,
+  ion-button.btn-despostular,
+  ion-button.btn-detail {
+    --border-radius: 18px;
+    border-radius: 18px;
+    width: 100%;
+    font-weight: 600;
+  }
+  ion-button.btn-detail {
+    color: var(--ion-text-color);
+    border: 2px solid var(--ion-color-primary);
+    --background: transparent;
+    text-transform: initial !important;
+  }
+  ion-button.btn-postular,
+  ion-button.btn-despostular {
+    --background: var(--ion-color-primary);
+  }
+
+  .new-item {
+    color: var(--ion-color-medium-contrast);
+    background: var(--ion-color-danger);
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 10px;
+  }
+
+  .localidad-origen-descripcion,
+  .localidad-destino-descripcion {
+    font-weight: 600;
+  }
+
+  .localidad-origen-descripcion,
+  .localidad-destino-descripcion,
+  .localidad-origen-provincia,
+  .localidad-destino-provincia {
+    color: var(--ion-color-dark);
+  }
+  .spinner {
+    display: block;
+    margin: 200px auto;
+    width: 80px;
+  }
+  ion-checkbox {
+    --border-color: var(--ion-color-primary);
+    --checkbox-background: transparent;
+    --checkbox-background-checked: transparent;
+  }
+  em {
+    color: var(--ion-color-danger);
+    font-size: 14px;
+    margin: 0;
+    padding: 5px 30px;
+    display: block;
+  }
+  .itemB {
+    background: transparent;
+    --background: transparent;
+    // color: var(--ion-color-light-tint);
+    --highlight-background: var(--ion-color-primary);
+    font-size: 22px;
+  }
+  ion-item {
+    --background: transparent;
+    --border-color: var(--ion-color-light);
+  }
+  .checkbox-primary {
+    margin-left: 15px;
+    margin-right: 5px;
+    --checkmark-color: var(--ion-color-dark);
+  }
+  ion-label.login-label {
+    --color: var(--ion-color-dark) !important;
+    font-weight: bold;
+  }
+  // mvz-password-editor.itemB {
+  //   ion-item {
+  //     ion-label {
+  //       --color: var(--ion-color-dark) !important;
+  //       font-weight: bold;
+  //     }
+  //   }
+  // }
+  .text-dinamic {
+    font-weight: bold !important;
+    color: var(--ion-text-color) !important;
+    text-transform: uppercase !important;
+  }
+
+  .titulo-leido {
+    color: var(--ion-color-primary-contras);
+    font-weight: 300;
+  }
+
+  .titulo-no-leido {
+    color: var(--ion-color-primary);
+    font-weight: 700;
+  }
+
+  .mensaje-no-leido {
+    color: var(--ion-color-primary-contras);
+    font-weight: 700;
+  }
+
+  .mensaje-leido {
+    color: #8f8787;
+  }
+}
+
+.alert-radio-group.sc-ion-alert-md,
+.alert-checkbox-group.sc-ion-alert-md {
+  border: none;
+}
+
+.text-center {
+  text-align: center !important;
+}

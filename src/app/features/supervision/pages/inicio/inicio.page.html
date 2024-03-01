@@ -1,0 +1,70 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-mvz-menu-button></app-mvz-menu-button>
+    <ion-title>Inicio</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid padding-sides
+            *ngIf="sectors">
+    <ion-row>
+      <ion-col col-12
+               text-center
+               user-data>
+        <h3 class="text-center">{{loggedUser.nombre}} {{loggedUser.apellido}}</h3>
+      </ion-col>
+    </ion-row>
+
+    <ion-row col-12>
+      <b class="sector inicio-title">SECTORES REALIZADOS</b>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list no-margin>
+          <ion-row *ngFor="let sector of sectorsCompleted(); let i = index;">
+            <ion-col size="2" class="col-ai-center">
+              <div>
+                <ion-icon *ngIf="sector.status === 'OK'" color="success" name="checkmark-circle-outline" class="icon-item"></ion-icon>
+                <ion-icon *ngIf="sector.status === 'FAIL'" color="danger" name="close-circle-outline" class="icon-item"></ion-icon>
+                <ion-icon *ngIf="sector.status === 'missing'" color="medium" name="remove-circle-outline" class="icon-item"></ion-icon>
+              </div>
+            </ion-col>
+            <ion-col size="8">
+              <h2 item-title>
+                {{sector.sitioNombre}} - {{sector.subSitioNombre}} - {{sector.descripcion}}
+              </h2>
+              <h3 item-sub-title>{{sector.rutinas[0].fechaHoraVisita | date: 'dd/MM/yyyy HH:mm:ss'}}</h3>
+            </ion-col>
+            <ion-col size="2" class="col-ai-center">
+              <div>
+                <ion-icon name="trash-outline" class="icon-item" (click)="deleteItem(i)"></ion-icon>
+                <!-- <ion-icon name="create-outline" class="icon-item" (click)="editItem(sector)"></ion-icon> -->
+              </div>
+            </ion-col>
+          </ion-row>
+
+          <div style="text-align: center;" *ngIf="sectorsCompleted().length === 0">
+            No hay sectores inspeccionados para sincronizar.
+          </div>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-row padding-top>
+      <ion-col *ngIf="testing">
+        <ion-button (click)="test()">TEST</ion-button>
+      </ion-col>
+      <ion-col>
+          <ion-button style="width: 100%;" (click)="confirm()" [disabled]="!isenabled">
+            SINCRONIZAR
+          </ion-button>
+      </ion-col>
+      <ion-col>
+        <ion-button style="width: 100%;" (click)="goToScan()" color="medium">
+          <ion-icon name="camera"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

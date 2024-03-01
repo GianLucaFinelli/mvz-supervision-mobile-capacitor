@@ -1,0 +1,50 @@
+ion-content.content-login {
+  form{
+    margin-top: 20%;
+  }
+  #logo-login {
+    // width: 165px;
+    width: 50%;
+    margin: auto;
+    display: block;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
+  }
+
+  ion-text.bottom {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    position: fixed;
+    bottom: 0px;
+  }
+
+  ion-text h6 {
+    margin: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  div.btnLogin>ion-text {
+    margin: auto 0;
+    padding-top: 1px;
+  }
+
+  #buttonLogin {
+    font-weight: bold;
+  }
+
+  h6 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .register {
+    color: var(--ion-color-dark-contrast);
+  }
+
+}
+
+img {
+  max-width: 82%;
+}

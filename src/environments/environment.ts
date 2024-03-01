@@ -1,16 +1,54 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
-
 export const environment = {
-  production: false
-};
+  version: '3.0.1',
+  production: false,
 
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/plugins/zone-error';  // Included with Angular CLI.
+  supportUser: '',
+  supportPass: '',
+  entorno: 'desarrollo',
+
+  tenantId: '4',
+  aplicacionId: 2,
+
+  // TODO: CAMBIAR CREDENCIALES DE PUSH NOTIFICATION POR LAS DE COCCOLO
+  firebase: {
+    apiKey: "",
+    authDomain: "",
+    projectId: "",
+    storageBucket: "",
+    messagingSenderId: "",
+    appId: "",
+    measurementId: "",
+    vapidKey: ''
+  },
+
+  google: {
+    mapsAPIKey: '',
+    cloudVisionAPIKey: '',
+  },
+
+  // Compilar siempre apuntado a producción y
+  // lo cambiamos luego con 999999 así podemos pasar la appa sin recompilar
+
+  apiBaseUrl: 'https://apps-dev.mvzn.me/',
+  apiDevBaseUrl: 'https://apps-dev.mvzn.me/',
+  apiTestBaseUrl: 'https://apps-dev.mvzn.me/',
+  apiUATBaseUrl: 'https://apps-dev.mvzn.me/',
+  apiProdBaseUrl: 'https://apps-dev.mvzn.me/',
+
+
+  modulo: 'supervision-be',
+  // Si enviamos la url completa no considera el apiBaseUrl. Esto solo en desarrollo.
+  general: 'general-be',
+  storage:'storage-be',
+  // modulo: 'http://localhost:24888',
+  // // Si enviamos la url completa no considera el apiBaseUrl. Esto solo en desarrollo.
+  // general: 'http://localhost:30000',
+  // storage:'storage-be/',
+
+  // Listado de urls sin autenticación
+  publicUrls: [
+    'token',
+    'version',
+    'resetear-password',
+  ],
+};

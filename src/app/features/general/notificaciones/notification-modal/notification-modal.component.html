@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Detalles de Notificación</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="closeModal()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <div class="font-date date-container">
+        <span class="color">{{
+          notification.fechaEnvio | date : "dd/MM/yyyy"
+        }}</span>
+      </div>
+      <ion-label>
+        <div class="font padding-titulo">
+          <span>{{ notification.titulo }}</span>
+        </div>
+      </ion-label>
+    </ion-item>
+    <ion-text>
+      <p class="padding-text color">{{ notification.mensaje }}</p>
+    </ion-text>
+  </ion-list>
+</ion-content>

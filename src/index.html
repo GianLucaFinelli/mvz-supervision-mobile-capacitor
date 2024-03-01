@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Ionic App</title>
+  <title>Faciliteamz - Supervisión</title>
 
   <base href="/" />
 
@@ -13,14 +13,26 @@
   <meta name="msapplication-tap-highlight" content="no" />
 
   <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet">
 
   <!-- add to homescreen for ios -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#474b4d">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#474b4d">
 </head>
 
 <body>
   <app-root></app-root>
+  <script>function init(){};</script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAB_kdrlYOsV7YhjUkpZ65340xRjR5m9c&callback=init"></script> -->
+  <script type="module" src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.esm.js"></script>
+  <script nomodule src="https://unpkg.com/@ionic/pwa-elements@latest/dist/ionicpwaelements/ionicpwaelements.js"></script>
+  </script>
+  <noscript>Please enable JavaScript to continue using this application.</noscript>
 </body>
 
 </html>

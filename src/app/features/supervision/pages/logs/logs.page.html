@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-mvz-menu-button></app-mvz-menu-button>
+    <ion-title>Logs</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-grid padding-sides>
+    <ion-row>
+      <ion-col>
+        <ion-list no-margin
+                  *ngIf="logs">
+          <ion-item item-bcg
+                    *ngFor="let log of logs">
+            <h2 item-title>{{log}}</h2>
+          </ion-item>
+        </ion-list>
+        <ion-list no-margin
+                  *ngIf="!logs">
+          <ion-item>
+            <div item-title>No hay elementos en el log.</div>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-button (click)="confirm()" style="width: 100% !important;">
+          Limpiar Log
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+</ion-content>

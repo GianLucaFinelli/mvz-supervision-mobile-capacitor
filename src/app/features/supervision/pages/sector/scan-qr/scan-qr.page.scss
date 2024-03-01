@@ -1,0 +1,78 @@
+app-scan-qr {
+  .item-md.item-block .item-inner {
+    border: 0 !important;
+  }
+
+  /*customer*/
+  .steps {
+    color: #07b9b7 !important;
+
+    h6 {
+      margin-bottom: 0px;
+      margin: 0;
+    }
+  }
+
+  .progress-bar {
+    p {
+      margin-top: 6px;
+      margin-bottom: 9px;
+    }
+
+    .col {
+      padding: 0;
+    }
+  }
+
+  [thumbnail] {
+    margin: 0 auto;
+    padding: 10% 0px 4%;
+  }
+
+  [padding-sides] {
+    padding: 0 10px;
+  }
+
+  [sector-title] {
+    padding: 0 10px;
+
+    .label {
+      margin: 0;
+
+      p {
+        font-size: 1em;
+        margin: unset;
+      }
+    }
+  }
+
+  [scaninfo] {
+    margin: 0 auto;
+  }
+
+  [user-data] h3 {
+    // font-family: ''
+    font-weight: 500;
+  }
+}
+
+.custom-mode {
+  color: red;
+  font-weight: bold;
+}
+
+.border-input {
+  border-bottom: 1px solid #dedede;
+}
+
+.img-container {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  margin: 10px auto !important;
+}
+
+.sector {
+  margin: 10px;
+}

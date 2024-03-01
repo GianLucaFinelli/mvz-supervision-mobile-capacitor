@@ -1,0 +1,8 @@
+<div class="imgContainer">
+  <img [src]="imagePhoto || imgDefault" (click)="takePicture()"/>
+  <div *ngIf="imagePhoto && !showErr" class="closeButton" (click)="changeImage()"><ion-icon name="close-circle-outline"></ion-icon></div>
+  <div *ngIf="!isValid && showErr" class="imagenIvalida" (click)="takePicture()">
+    Imagen Invalida
+    <div *ngIf="imagePhoto" class="closeButton" (click)="changeImage()"><ion-icon name="close-circle-outline"></ion-icon></div>
+  </div>
+</div>

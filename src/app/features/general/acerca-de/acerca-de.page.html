@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <app-mvz-menu-button></app-mvz-menu-button>
+    <ion-title>Acerca de</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="acerca-de ion-padding" scroll="false">
+  <div class="center">
+    <ion-row margin-top>
+      <ion-col col-12 class="ion-text-center">
+        <p color="light">Versión {{versionNumber}}</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12 class="ion-text-center ion-margin-top">
+        <p color="light">Todos los derechos reservados:</p>
+        <img
+          class="medium"
+          (click)="navigateTo(linkPageCoccolo)"
+          [src]="imageLogo"
+        />
+        <p>2021</p>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-12 class="ion-text-center ion-margin-top">
+        <p>Desarrollado por:</p>
+        <img
+          class="small"
+          (click)="navigateTo(linkPageMovizen)"
+          [src]="imageMovizen"
+        />
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

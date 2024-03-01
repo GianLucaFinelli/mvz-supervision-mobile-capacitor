@@ -1,0 +1,26 @@
+ion-grid {
+    height: 20.5%;
+  
+    ion-row {
+      height: 22%;
+    }
+  }
+  
+  .content-logo {
+    width: 100%;
+    height: 160px;
+  }
+  
+  #logo-principal-forgot {
+    width: 165px;
+    margin: auto;
+    display: block;
+  }
+  
+  .dni-reset-pass {
+    font-weight: bold;
+  }
+  
+  .dni-reset-pass > ion-input {
+    font-weight: normal !important;
+  }
